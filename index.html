@@ -21,56 +21,117 @@
             </nav>
         </header>
         
-        <!-- Video Sections -->
-        <main class="video-container">
-            <!-- First Video -->
-            <div class="video-section">
-                <iframe 
-                    src="https://www.youtube.com/embed/Gcvu9C3s32s?si=Jinz47m5LWiQgZDA" 
-                    title="Last Train to Krakow" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
-                </iframe>
-                <div class="video-title">Last Train to Krakow</div>
-                <div class="video-subtext">A documentary about Poland and Ukraine in the first weeks of war.</div>
-            </div>
-            
-            <!-- Second Video -->
-            <div class="video-section">
-                <iframe 
-                    src="https://www.youtube.com/embed/N9YuRZukw6U?si=z5cnokJ7zczsUI8Q" 
-                    title="How Chicago Welcomes Migrants" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
-                </iframe>
-                <div class="video-title">How Chicago Welcomes Migrants</div>
-                <div class="video-subtext">A documentary about Venezuelan immigrants arriving in Chicago.</div>
-            </div>
-            
-            <!-- Third Video -->
-            <div class="video-section">
-                <iframe 
-                    src="https://www.youtube.com/embed/psIVW2BdsZE?si=1lQi05x53kZ2i6hN" 
-                    title="Capital Matters: Germany's Struggling Economy" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
-                </iframe>
-                <div class="video-title">Capital Matters: Germany's Struggling Economy</div>
-                <div class="video-subtext">An economics explainer web series.</div>
-            </div>
-            
-            <!-- Fourth Video -->
-            <div class="video-section">
-                <iframe 
-                    src="https://youtube.com/embed/_CefdYWAIUk?feature=share" 
-                    title="20th Century" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
-                </iframe>
-                <div class="video-title">20th Century</div>
-                <div class="video-subtext">An animated music video created with cutouts and Motion 5.</div>
-            </div>
-        </main>
+      <!-- Video Sections -->
+<main class="video-container">
+    <!-- First Video -->
+    <div class="video-section">
+        <div class="video-thumbnail" onclick="loadVideo(this, 'Gcvu9C3s32s')">
+            <img 
+                src="https://img.youtube.com/vi/Gcvu9C3s32s/maxresdefault.jpg" 
+                alt="Last Train to Krakow Thumbnail">
+            <div class="play-button">▶</div>
+        </div>
+        <div class="video-title">Last Train to Krakow</div>
+        <div class="video-subtext">A documentary about Poland and Ukraine in the first weeks of war.</div>
+    </div>
+    
+    <!-- Second Video -->
+    <div class="video-section">
+        <div class="video-thumbnail" onclick="loadVideo(this, 'N9YuRZukw6U')">
+            <img 
+                src="https://img.youtube.com/vi/N9YuRZukw6U/maxresdefault.jpg" 
+                alt="How Chicago Welcomes Migrants Thumbnail">
+            <div class="play-button">▶</div>
+        </div>
+        <div class="video-title">How Chicago Welcomes Migrants</div>
+        <div class="video-subtext">A documentary about Venezuelan immigrants arriving in Chicago.</div>
+    </div>
+    
+    <!-- Third Video -->
+    <div class="video-section">
+        <div class="video-thumbnail" onclick="loadVideo(this, 'psIVW2BdsZE')">
+            <img 
+                src="https://img.youtube.com/vi/psIVW2BdsZE/maxresdefault.jpg" 
+                alt="Capital Matters: Germany's Struggling Economy Thumbnail">
+            <div class="play-button">▶</div>
+        </div>
+        <div class="video-title">Capital Matters: Germany's Struggling Economy</div>
+        <div class="video-subtext">An economics explainer web series.</div>
+    </div>
+    
+    <!-- Fourth Video -->
+    <div class="video-section">
+        <div class="video-thumbnail" onclick="loadVideo(this, '_CefdYWAIUk')">
+            <img 
+                src="https://img.youtube.com/vi/_CefdYWAIUk/maxresdefault.jpg" 
+                alt="20th Century Thumbnail">
+            <div class="play-button">▶</div>
+        </div>
+        <div class="video-title">20th Century</div>
+        <div class="video-subtext">An animated music video created with cutouts and Motion 5.</div>
+    </div>
+</main>
+
+<script>
+    /**
+     * Replaces the thumbnail with an embedded YouTube iframe when clicked.
+     * @param {HTMLElement} thumbnail - The clicked thumbnail element.
+     * @param {string} videoId - The YouTube video ID to load.
+     */
+    function loadVideo(thumbnail, videoId) {
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        iframe.title = thumbnail.querySelector('img').alt;
+        iframe.width = '560';
+        iframe.height = '315';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen = true;
+
+        thumbnail.parentNode.replaceChild(iframe, thumbnail);
+    }
+</script>
+
+<style>
+    .video-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .video-section {
+        width: 100%;
+        max-width: 560px;
+        margin: 0 auto;
+    }
+    .video-thumbnail {
+        position: relative;
+        cursor: pointer;
+    }
+    .video-thumbnail img {
+        width: 100%;
+        border-radius: 8px;
+    }
+    .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+        color: white;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 50%;
+        padding: 10px;
+    }
+    .video-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+    .video-subtext {
+        font-size: 0.9rem;
+        color: #555;
+    }
+</style>
+
         
         <!-- Footer Section -->
         <footer class="footer"></footer>
