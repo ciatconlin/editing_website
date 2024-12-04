@@ -1,0 +1,301 @@
+/* styles.css */
+
+/* Reset and Box-Sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* CSS Variables for Consistency */
+:root {
+    --side-padding: 20px;
+    --header-font-size: 2em;
+    --subtext-font-size: 1em;
+    --main-color: white; /* Text color set to white */
+    --background-color: black; /* Background color set to black */
+    --nav-gap: 20px;
+    --video-gap: 20px;
+    --hover-bg-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Define the Custom Fonts */
+@font-face {
+    font-family: 'TexGyreHeros';
+    src: url('../Editing_Website/fonts/texgyreheros.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+/* Apply Global Styles */
+body {
+    background-color: var(--background-color); /* Black background */
+    color: var(--main-color); /* White text */
+    font-family: 'TexGyreAdventor', serif; /* Retain chosen font */
+}
+
+/* Container to Manage Overall Layout and Padding */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px var(--side-padding);
+    background-color: var(--background-color); /* Black background */
+}
+
+/* Header Container */
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Spread items horizontally */
+    align-items: center; /* Vertically center items */
+    padding: 10px 0; /* Vertical padding */
+}
+
+/* Header Group */
+.header-group {
+    display: flex;
+    align-items: center; /* Vertically center header and subtext */
+}
+
+/* Header Text */
+.header {
+    font-size: var(--header-font-size);
+    font-weight: normal;
+    color: var(--main-color); /* White text */
+    text-transform: lowercase;
+    font-family: 'TexGyreHeros', Arial, Helvetica, sans-serif; /* Apply custom font */
+    /* Removed text-align: center; to keep main header left-aligned */
+}
+
+/* Subtext */
+.subtext {
+    margin-left: 20px;
+    font-size: var(--subtext-font-size);
+    color: var(--main-color); /* White text */
+    font-weight: normal;
+    /* Removed text-align: center; to keep subtext left-aligned */
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    gap: var(--nav-gap);
+    align-items: center; /* Align links vertically centered */
+    /* Removed justify-content: center; to keep nav links right-aligned */
+}
+
+/* Navigation Links */
+nav a {
+    text-decoration: none;
+    color: var(--main-color); /* White text */
+    font-weight: normal;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 1em;
+}
+
+/* Navigation Links Hover Effect */
+nav a:hover {
+    background-color: var(--hover-bg-color); /* Subtle white background on hover */
+}
+
+/* Video Container */
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 30px;
+    gap: var(--video-gap);
+}
+
+/* Individual Video Section */
+.video-section {
+    text-align: center;
+    max-width: 550px; /* Slightly reduced to accommodate gaps */
+    flex: 1 1 550px; /* Flex-grow, flex-shrink, flex-basis */
+}
+
+/* Responsive Iframe */
+iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: none;
+}
+
+/* Video Title */
+.video-title {
+    margin-top: 10px;
+    font-size: 1.5em;
+    font-weight: normal;
+    color: var(--main-color); /* White text */
+}
+
+/* Video Subtext */
+.video-subtext {
+    font-size: 1em;
+    color: var(--main-color); /* White text */
+    margin-top: 5px;
+    font-weight: normal;
+}
+
+/* Footer */
+.footer {
+    height: 50px;
+    background-color: var(--background-color); /* Black background */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 10px; /* Reduced side padding on smaller screens */
+    }
+
+    .header {
+        font-size: 1.5em; /* Smaller header font on smaller screens */
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center; /* Center nav links vertically in column */
+    }
+
+    nav a {
+        padding: 10px 0;
+    }
+
+    .video-container {
+        margin-top: 50px;
+        gap: 20px;
+    }
+
+    .video-section {
+        flex: 1 1 100%; /* Full width on smaller screens */
+    }
+}
+
+/* Section Headings */
+h2 {
+    text-align: center; /* Centered text */
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    color: var(--main-color); /* White text */
+    /* Removed border-bottom to eliminate the thin line */
+    /* border-bottom: 2px solid #444; */ /* This line is removed */
+    padding-bottom: 5px;
+    /* Removed display: inline-block; and margin auto */
+}
+
+/* Bulleted Lists */
+/* Center the entire Select Credits list */
+#select-credits ul,
+#languages ul,
+#software-skills .skills-columns ul {
+    max-width: 600px; /* Adjust as needed */
+    margin: 0 auto; /* Centers the list horizontally */
+    padding: 0; /* Remove default padding */
+    list-style-position: inside; /* Keeps bullet points inside the list item */
+}
+
+/* Optional: Remove default list padding */
+#select-credits ul,
+#languages ul,
+#software-skills .skills-columns ul {
+    padding-left: 0;
+}
+
+/* =======================
+   Section: Software Skills
+======================= */
+
+/* Container for the two columns */
+#software-skills .skills-columns {
+    display: flex; /* Enables Flexbox layout */
+    justify-content: center; /* Centers the columns horizontally */
+    gap: 40px; /* Space between the two columns */
+    max-width: 800px; /* Optional: Limits the width of the container */
+    margin: 0 auto; /* Centers the container within the section */
+    padding: 20px 0; /* Vertical padding for spacing */
+}
+
+/* Individual lists within the columns */
+#software-skills .skills-columns ul {
+    list-style-type: disc; /* Disc bullets */
+    list-style-position: inside; /* Bullets inside the list items */
+    padding-left: 0; /* Removes default left padding */
+    width: 100%; /* Ensures the lists take up equal space */
+}
+
+/* List items styling */
+#software-skills .skills-columns ul li {
+    text-align: center; /* Centers the text within each list item */
+    margin-bottom: 10px; /* Space between list items */
+    font-size: 1em; /* Consistent font size */
+    color: var(--main-color); /* Ensures text is white */
+}
+
+/* Responsive Behavior: Stack columns on smaller screens */
+@media (max-width: 600px) {
+    #software-skills .skills-columns {
+        flex-direction: column; /* Stacks the columns vertically */
+        align-items: center; /* Centers the single column */
+        gap: 20px; /* Reduces space between items */
+    }
+
+    #software-skills .skills-columns ul {
+        max-width: 100%; /* Allows the list to take full width */
+    }
+}
+/* =======================
+   Section: Languages
+======================= */
+
+/* Container Styling */
+#languages {
+    display: flex;                  /* Enables Flexbox layout */
+    flex-direction: column;         /* Stacks children vertically */
+    align-items: center;            /* Centers children horizontally */
+    padding: 20px 0;                /* Adds vertical padding */
+    background-color: var(--background-color); /* Ensures background consistency */
+}
+
+/* Section Heading */
+#languages h2 {
+    text-align: center;             /* Centers the heading text */
+    margin-bottom: 20px;            /* Adds space below the heading */
+    font-size: 1.5em;                 /* Adjusts font size as needed */
+    color: var(--main-color);       /* Ensures text color consistency */
+}
+
+/* Unordered List Styling */
+#languages ul {
+    list-style-type: disc;          /* Uses disc bullets */
+    list-style-position: inside;    /* Keeps bullets inside the list item's content box */
+    padding-left: 0;                /* Removes default left padding */
+    margin: 0;                       /* Removes default margin */
+    max-width: 400px;               /* Sets a maximum width for the list */
+    width: 100%;                    /* Ensures the list takes full width up to max-width */
+    text-align: center;             /* Centers the text within the list */
+}
+
+/* List Items Styling */
+#languages ul li {
+    margin-bottom: 10px;            /* Adds space between list items */
+    font-size: 1em;               /* Adjusts font size as needed */
+    color: var(--main-color);       /* Ensures text color consistency */
+}
+
+/* Emphasized Text Styling */
+#languages ul li em {
+    font-style: italic;             /* Applies italics to emphasized text */
+    /* Additional styles can be added if needed */
+}
+
+/* Responsive Design (Optional) */
+@media (max-width: 600px) {
+    #languages ul {
+        max-width: 100%;            /* Allows the list to take full width on small screens */
+    }
+}
