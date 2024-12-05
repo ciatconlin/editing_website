@@ -7,20 +7,12 @@
     padding: 0;
 }
 
-/* CSS Variables */
-:root {
-    --main-color: white;             /* Main text color */
-    --background-color: black;       /* Background color */
-    --side-padding: 20px;
-    --header-font-size: 2em;
-    --subtext-font-size: 1em;
-}
-
-/* Body Styling */
+/* Set font face */
 body {
-    background-color: var(--background-color);
-    color: var(--main-color);
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif; /* You can change this to any preferred font */
+    background-color: black;          /* Set background color to black */
+    color: white;                     /* Set text color to white */
+    line-height: 1.6;                 /* Improve line spacing for readability */
 }
 
 /* Container Styling */
@@ -45,14 +37,15 @@ body {
 }
 
 .header {
-    font-size: var(--header-font-size);
+    font-size: 2em;
     text-transform: lowercase;
-    color: var(--main-color);
+    color: white;
 }
 
 .subtext {
-    font-size: var(--subtext-font-size);
-    color: var(--main-color);
+    font-size: 1em;
+    color: white;
+    margin-top: -5px; /* Reduce space between header and subtext */
 }
 
 /* Navigation Styling */
@@ -63,7 +56,7 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: var(--main-color);
+    color: white;
     padding: 5px 10px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
@@ -73,101 +66,13 @@ nav a:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Profile Section */
-#profile {
-    display: grid;                        /* Use grid layout */
-    grid-template-columns: auto 1fr;     /* Two columns: one for the image, one for the text */
-    gap: 30px;                            /* Space between image and text */
-    align-items: center;                  /* Center items vertically */
-    padding: 40px 20px;
-}
-
-/* Responsive Image Styling */
-.responsive-img {
-    max-width: 300px;                     /* Restrict image size */
-    width: 100%;                          /* Make image responsive */
-    height: auto;                         /* Maintain aspect ratio */
-    border-radius: 50%;                   /* Make the image circular */
-    object-fit: cover;                    /* Ensure proper fit within the container */
-    justify-self: center;                 /* Center image within its grid cell */
-}
-
-/* Profile Text Styling */
-.profile-text {
-    display: flex;                        /* Use flex layout for the text container */
-    flex-direction: column;               /* Stack heading and paragraph vertically */
-    align-items: flex-start;              /* Align text to the left */
-    max-width: 600px;                     /* Restrict maximum text width */
-}
-
-/* Section Heading */
-.profile-text h2 {
-    text-align: left;                     /* Align heading to the left */
-    margin-bottom: 10px;                  /* Add space below the heading */
-    font-size: 1.5em;                     /* Adjust heading size */
-    color: var(--main-color);             /* Use the main text color */
-}
-
-/* Profile Paragraph */
-.profile-text p {
-    text-align: left;                     /* Align paragraph text to the left */
-    line-height: 1.6;                     /* Improve readability */
-    color: var(--main-color);             /* Use the main text color */
-    margin: 0;                            /* Remove default margin */
-}
-
-/* Footer */
-.footer {
-    height: 50px;
-    background-color: var(--background-color);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    #profile {
-        grid-template-columns: 1fr;       /* Switch to a single-column layout */
-        text-align: center;               /* Center-align the text */
-    }
-
-    .profile-text {
-        align-items: center;              /* Center text in the single-column layout */
-    }
-
-    .profile-text h2,
-    .profile-text p {
-        text-align: center;               /* Center-align text for smaller screens */
-    }
-}
-
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.container {
-    padding: 20px;
-}
-
-/* Header Styles */
-.header-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 /* Video Container Styles */
 .video-container {
     display: flex;
-    justify-content: center;
-}
-
-.video-columns {
-    display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    max-width: 1200px;
+    gap: 20px; /* Space between video sections */
+    justify-content: center; /* Center the video sections */
+    margin-top: 20px;
 }
 
 /* Individual Video Section */
@@ -175,14 +80,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-basis: calc(50% - 10px); /* 50% width for two columns with space between */
+    width: calc(50% - 10px); /* Two columns with space between */
     box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
-/* Video Styling */
 .video-section iframe {
     width: 100%;
-    height: auto;
     max-width: 500px; /* Optional max width for videos */
     aspect-ratio: 16 / 9;
     margin-bottom: 10px;
@@ -197,5 +101,3 @@ body {
 .video-subtext {
     font-size: 14px;
     color: gray;
-    text-align: center;
-}
